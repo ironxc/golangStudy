@@ -5,6 +5,7 @@ package main
 import "fmt"
 	
 func main() {
+	
 	p := []int{2 ,3 ,5 ,11 ,23 ,1 }
 	fmt.Println("p==",p)
 
@@ -18,4 +19,8 @@ func main() {
 	fmt.Println("p[4:] ==", p[4:]) //[23,1]
 
 	fmt.Println("cap(p)",cap(p))
+
+	var slice1 []int
+	slice1 = append(slice1,100)
+	fmt.Println(slice1)
 }

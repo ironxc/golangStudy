@@ -3,7 +3,7 @@
 package main 
 
 import "fmt"
-
+	
 func main() {
 	p := []int{2 ,3 ,5 ,11 ,23 ,1 }
 	fmt.Println("p==",p)

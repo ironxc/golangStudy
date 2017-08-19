@@ -34,7 +34,7 @@ func (h Human) Sing(lyrics string) {
 func (e Employee) SayHi() {
     fmt.Printf("Hi, I am %s, I work at %s. Call me on %s\n", e.name,
         e.company, e.phone)
-    }
+}
 
 // Interface Men被Human,Student和Employee实现
 // 因为这三个类型都实现了这两个方法

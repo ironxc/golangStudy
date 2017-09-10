@@ -7,14 +7,27 @@
 package main
 
 import (
-	"code.google.com/p/go-tour/wc"
+	"./wc"
+	"strings"
 )
 
 func WordCount(s string) map[string]int {
-	return map[string]int{"x": 1}
+
+	var result = make(map[string]int)
+	sarr := strings.Fields(s) 
+	for _, key := range sarr {
+		if _, ok := result[key]; ok{
+			result[key]++
+		}else{
+			result[key] = 1
+		}
+
+	}
+	return result
 }
 
 func main() {
 	
-	// wc.Test(WordCount)
+	// fmt.Println(WordCount("hello world world"))
+	wc.Test(WordCount)
 }

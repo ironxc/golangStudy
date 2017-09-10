@@ -21,4 +21,7 @@ func main() {
 	fmt.Println(sum)
 	// fmt.Println("go语言");
 
+	for {
+		fmt.Println("aa")
+	}
 }

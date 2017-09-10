@@ -23,7 +23,9 @@ func (v *Vertex) Abs() float64 {
 }
 
 
-
+func ( Vertex) sayH() {
+	fmt.Println("没参数的方法")
+}
 func (v Cat) say() int{
 	return v.weight
 }
@@ -48,7 +50,8 @@ func main() {
 	v := &Vertex{3, 4}
 	fmt.Println(v.Abs())
 
-	
+	x := Vertex{1, 2}
+	x.sayH()
 	f := MyFloat(-math.Sqrt2)
 	fmt.Println(f.Abs())
 }

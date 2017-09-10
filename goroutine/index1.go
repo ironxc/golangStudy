@@ -1,43 +1,36 @@
+/*
+channel 是有类型的管道，可以用 channel 操作符 <- 对其发送或者接收值。
+
+ch <- v    // 将 v 送入 channel ch。
+v := <-ch  // 从 ch 接收，并且赋值给 v。
+（“箭头”就是数据流的方向。）
+
+和 map 与 slice 一样，channel 使用前必须创建：
+
+ch := make(chan int)
+默认情况下，在另一端准备好之前，发送和接收都会阻塞。
+这使得 goroutine 可以在没有明确的锁或竞态变量的情况下进行同步
+*/
+
 package main
 
-/*
-	channel用于goroutine间的通信
-	必须使用make 创建channel
-	ci := make(chan int)
-	cs := make(chan string)
-	cf := make(chan interface{})
-
-	ch <- v //发送到channel ch
-	v := <-ch //从ch中接收数据并赋值给v
-*/
-/*
-默认情况下，channel接收和发送数据都是阻塞的，除非另一端已经准备好，
-这样就使得Goroutines同步变的更加的简单，而不需要显式的lock。
-所谓阻塞，也就是如果读取（value := <-ch）它将会被阻塞，直到有数据接收。
-其次，任何发送（ch<-5）将会被阻塞，直到数据被读出。
-无缓冲channel是在多个goroutine之间同步很棒的工具。
-*/
 import "fmt"
 
 func sum(a []int, c chan int) {
-    total := 0
-    for _, v := range a {
-        total += v
-    }
-    c <- total  // send total to c
+	sum := 0
+	for _, v := range a {
+		sum += v
+	}
+	c <- sum // 将和送入 c
 }
 
 func main() {
-    a := []int{7, 2, 8, -9, 4, 0}
+	a := []int{7, 2, 8, -9, 4, 0}
 
-    c := make(chan int) //创建一个值类型为Int的channel
-    go sum(a[:len(a)/2], c) //开启一个协程
-    go sum(a[len(a)/2:], c)
-    x, y := <-c, <-c  // receive from c
+	c := make(chan int)
+	go sum(a[:len(a)/2], c)
+	go sum(a[len(a)/2:], c)
+	x, y := <-c, <-c // 从 c 中获取
 
-    z := <-c
-    fmt.Println(x)
-    fmt.Println(y)
-    fmt.Println(z)
-    fmt.Println(x, y, x + y)
+	fmt.Println(x, y, x+y)
 }

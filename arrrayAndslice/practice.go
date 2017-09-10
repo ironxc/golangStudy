@@ -10,7 +10,7 @@
 
 package main
 
-import "code.google.com/p/go-tour/pic"
+import "./pic"
 
 func Pic(dx, dy int) [][]uint8 {
 	

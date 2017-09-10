@@ -52,7 +52,9 @@ func main() {
 			19,
 		},  
 	}
-
+	for i,v := range persons {
+		fmt.Println(i, v)
+	}
 	fmt.Printf("%s的年龄是%d\n", persons["p1"].name, persons["p1"].age)
 	fmt.Printf("%s的年龄是%d\n", persons["p2"].name, persons["p2"].age)
 	fmt.Printf("%s的年龄是%d\n", persons["p3"].name, persons["p3"].age)

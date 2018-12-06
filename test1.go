@@ -18,7 +18,18 @@ type Client struct{
 type per struct{
 	clients map[*Client]bool
 }
+func checkPerfectNumber(num int) bool {
+    result := 0
+		for i:= 1 ; i <= num / 2; i++ {
+				if( num % i ) == 0 {
+					fmt.Println(i)
+						result += i
+				}
+		}
+    return num == result
+}
 func main() {
+	fmt.Println("asf", checkPerfectNumber(4))
 	fmt.Println("My favorite number is", rand.Intn(20))
 	fmt.Println(math.Pi)
 	aa := Client{a: "huhuhu"}
@@ -31,4 +42,5 @@ func main() {
 	fmt.Println(aa)
 	fmt.Println(p)
 	fmt.Println(p.clients[&aa])
+	
 }

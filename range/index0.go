@@ -4,7 +4,11 @@ import "fmt"
 
 var pow  = []int{1, 2, 4, 8, 16, 32, 64, 128}
 var	pow2 = make([]int, 10)
-
+var person = map[string]string{
+	"asaf":"aa",
+	"af":"bb",
+	"ff":"cc",
+}
 //for 循环的 range 格式可以对 slice 或者 map 进行迭代循环。
 // 通过_符号来忽略index或者value
 func main() {
@@ -24,5 +28,8 @@ func main() {
 	for index, _ := range pow2 {
 			fmt.Printf("%d\n", index)
 	}
-	fmt.Println("pow2",pow2)
+	for key,val := range person{
+		fmt.Println(key, val)
+	}
+	fmt.Println("pow2================")
 }

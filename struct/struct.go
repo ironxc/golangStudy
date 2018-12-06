@@ -18,6 +18,9 @@ func main() {
 	
 	i := 100
 	fmt.Println(Vertex{1, 2})
+	ll := Vertex{
+		12, 23,
+	}
 	v := Vertex{
 		1, 2,
 	}
@@ -29,9 +32,12 @@ func main() {
 	// ..结构体指针
 	p := &v
 	m := &i
-	fmt.Println(p)
+	fmt.Println("p========",p)
+	fmt.Println("m========", m)
+	fmt.Println("&ll========", &ll)
+	fmt.Println(ll.X)
 	fmt.Println(*p)
-	fmt.Println(m)
+	
 	p.X = 1e9
 	fmt.Println(v)
 

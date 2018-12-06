@@ -20,5 +20,6 @@ func main() {
 	fmt.Println(needInt(Small))
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
-	fmt.Println(needInt(Big))
+	// fmt.Println(needInt(Big))
+	fmt.Println( 4 % 2)
 }

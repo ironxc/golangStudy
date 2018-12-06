@@ -19,9 +19,4 @@ func main() {
 		sum += sum
 	}
 	fmt.Println(sum)
-	// fmt.Println("go语言");
-
-	for {
-		fmt.Println("aa")
-	}
 }

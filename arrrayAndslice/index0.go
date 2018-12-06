@@ -22,34 +22,40 @@ import "fmt"
 	slice总是引用了底层的数组
 */
 func main() {
-	 var arr1 = [2]int{1,2}
+	var arr1 = [2]int{1,2}
 
-	 var arr2 = [...]byte{'a' ,'e' ,'d' ,'c' ,'B' }
-	 // var arr2 = [...]byte{"a" ,"e" ,"d" ,"c" ,"B" }//使用双引号会报类型错 
+	var arr2 = [...]byte{'a' ,'e' ,'d' ,'c' ,'B' }
+	// var arr2 = [...]byte{"a" ,"e" ,"d" ,"c" ,"B" }//使用双引号会报类型错 
 
-	 var arr3 = [10]byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
+	var arr3 = [10]byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
 
-	 fmt.Println("arr1",arr1)
+	fmt.Println("arr1",arr1)
 
-	 fmt.Println("arr2",arr2)
-	 fmt.Println("arr3",arr3)
+	fmt.Println("arr2",arr2)
+	fmt.Println("arr3",arr3)
 
 
-	 var slice = []int{1,2,3,4,5}
-	 slice1 := slice
+	var slice = []int{1,2,3,4,5}
+	slice1 := slice
 
-	 fmt.Println("slice",slice)
-	 fmt.Println("slice1",slice1)
+	fmt.Println("slice",slice)
+	fmt.Println("slice1",slice1)
+	slice[0] = 100;
 
-	 slice[0] = 100;
+	//slice是引用类型，slice会指向一个底层的array
+	fmt.Println("slice",slice)
+	fmt.Println("slice1",slice1)
+	fmt.Println("len(slice)",len(slice))	 
+	fmt.Println("cap(slice)",cap(slice))	
+	
+	//array不是引用类型，它的拷贝就是值的拷贝
+	arra := [2]int{100, 101}
+	arrb := arra
+	arra[0] = 99
+	fmt.Println("arra", arra)
+	fmt.Println("arrb", arrb)
+	
+	slicem := make([]int,10,20)
 
-	 //slice是引用类型，slice会指向一个底层的array
-	 fmt.Println("slice",slice)
- 	 fmt.Println("slice1",slice1)
- 	 fmt.Println("len(slice)",len(slice))	 
- 	 fmt.Println("cap(slice)",cap(slice))	
-
- 	 slicem := make([]int,10,20)
- 	 
  	 fmt.Println("slicem",len(slicem),cap(slicem)) 
 }

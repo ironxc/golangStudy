@@ -19,9 +19,14 @@ const (
 	y = iota
 	z = iota
 )
+type M map[string] interface {}
 
 func main() {
-	
+	bb := M{ "a": "c"}
+	bb["aa"] = "ccc"
+	fmt.Println("bb" != "")
+	cc, _ := bb["aa"]
+	fmt.Println("bb", bb ,cc)
 	fmt.Println("x ",x)
 	fmt.Println("y ",y)
 	fmt.Println("z ",z)

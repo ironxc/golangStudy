@@ -27,7 +27,7 @@ func pow(x,n,lim float64) float64 {
 	} else{
 		fmt.Println("y",y)
 	}	
-
+	// fmt.Println("v", v) undefined v
 	return lim
 }
 func main() {
